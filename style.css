@@ -523,18 +523,36 @@ p {
    ========================================== */
 .project-poster-container {
   width: 100%;
-  margin: 20px 0;
+  margin: 25px 0;
   text-align: center;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 給海報加點淡淡的陰影，看起來像實體海報 */
-  border: 1px solid #e2e8f0;
 }
 
 .project-poster {
   display: block;
-  width: 100%;       /* 寬度會自動適應卡片大小，手機上看絕不爆版 */
-  height: auto;      /* 高度依比例縮放，不扭曲變形 */
-  max-width: 800px;  /* 限制最大寬度，避免在超大螢幕上太大 */
-  margin: 0 auto;
+  /* 👇 核心調整：限制海報在電腦版只佔卡片的 60% 寬度，手機版則佔 85%，保持內斂 */
+  width: 60%;         
+  max-width: 450px;   /* 限制最大寬度，絕對不會過大爆版 */
+  min-width: 280px;   /* 確保在極小螢幕的手機上依然能看清 */
+  
+  height: auto;       /* 依比例縮放，不扭曲變形 */
+  margin: 0 auto;     /* 置中對齊 */
+  
+  /* 優雅的細節修飾 */
+  border-radius: 8px; /* 柔和的圓角 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 極淡的陰影，營造紙張質感 */
+  border: 1px solid #e2e8f0; /* 細緻的淺灰色邊框 */
+  
+  transition: transform 0.3s ease; /* 加上微互動滑動效果 */
+}
+
+/* 當滑鼠移到海報上時，才會微微放大，增加精緻互動感 */
+.project-poster:hover {
+  transform: scale(1.02);
+}
+
+/* 📱 針對手機板螢幕的優化：讓寬度稍微拉開一點，才不會因為手機螢幕太小導致字看不清楚 */
+@media (max-width: 768px) {
+  .project-poster {
+    width: 85%;
+  }
 }
