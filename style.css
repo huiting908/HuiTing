@@ -518,3 +518,23 @@ p {
   border-radius: 4px;
   border: 1px solid #cbd5e1;
 }
+/* ==========================================
+   🖼️ 專題海報圖片響應式樣式
+   ========================================== */
+.project-poster-container {
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 給海報加點淡淡的陰影，看起來像實體海報 */
+  border: 1px solid #e2e8f0;
+}
+
+.project-poster {
+  display: block;
+  width: 100%;       /* 寬度會自動適應卡片大小，手機上看絕不爆版 */
+  height: auto;      /* 高度依比例縮放，不扭曲變形 */
+  max-width: 800px;  /* 限制最大寬度，避免在超大螢幕上太大 */
+  margin: 0 auto;
+}
