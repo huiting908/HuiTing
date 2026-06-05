@@ -495,8 +495,24 @@ p {
   border: 1px solid #bee3f8;
 }
 
-.project-desc {
-  margin: 0 0 15px 0;
+/* ==========================================
+   🤝 專題圖文混排家族樣式（優雅精緻版）
+   ========================================== */
+.project-main-content {
+  display: flex;
+  gap: 25px;            /* 左右區塊的間距 */
+  align-items: flex-start; /* 頂端對齊 */
+  margin-top: 15px;
+}
+
+/* 左側文字與標籤家族 */
+.project-text-side {
+  flex: 1;              /* 讓文字自動佔滿左邊剩餘空間 */
+}
+
+.project-text-side .project-desc {
+  margin-bottom: 20px;  /* 讓正文與下方的標籤保持舒服的距離 */
+  text-align: justify;  /* 文字兩端對齊，更好看 */
   color: #555555;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -518,41 +534,37 @@ p {
   border-radius: 4px;
   border: 1px solid #cbd5e1;
 }
-/* ==========================================
-   🖼️ 專題海報圖片響應式樣式
-   ========================================== */
-.project-poster-container {
-  width: 100%;
-  margin: 25px 0;
-  text-align: center;
+
+/* 右側海報家族 */
+.project-poster-side {
+  flex-shrink: 0;       /* 防止海報被文字擠壓變形 */
 }
 
-.project-poster {
+.project-mini-poster {
   display: block;
-  /* 👇 核心調整：限制海報在電腦版只佔卡片的 60% 寬度，手機版則佔 85%，保持內斂 */
-  width: 60%;         
-  max-width: 450px;   /* 限制最大寬度，絕對不會過大爆版 */
-  min-width: 280px;   /* 確保在極小螢幕的手機上依然能看清 */
-  
-  height: auto;       /* 依比例縮放，不扭曲變形 */
-  margin: 0 auto;     /* 置中對齊 */
-  
-  /* 優雅的細節修飾 */
-  border-radius: 8px; /* 柔和的圓角 */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 極淡的陰影，營造紙張質感 */
-  border: 1px solid #e2e8f0; /* 細緻的淺灰色邊框 */
-  
-  transition: transform 0.3s ease; /* 加上微互動滑動效果 */
+  width: 180px;         /* 核心調整：在電腦版限制寬度只有 180px，變成精緻的右側縮圖 */
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);       /* 經典細緻邊框 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);  /* 泛用型立體柔和陰影 */
+  transition: transform 0.3s ease;
 }
 
 /* 當滑鼠移到海報上時，才會微微放大，增加精緻互動感 */
-.project-poster:hover {
-  transform: scale(1.02);
+.project-mini-poster:hover {
+  transform: scale(1.05);
+  border-color: #3498db; /* 懸停時邊框變藍，呼應整體風格 */
 }
 
-/* 📱 針對手機板螢幕的優化：讓寬度稍微拉開一點，才不會因為手機螢幕太小導致字看不清楚 */
+/* 📱 針對手機板螢幕的響應式優化 */
 @media (max-width: 768px) {
-  .project-poster {
-    width: 85%;
+  .project-main-content {
+    flex-direction: column; /* 手機版自動切換回上下排列 */
+    gap: 20px;
+  }
+  
+  .project-mini-poster {
+    width: 140px;       /* 手機版縮得更小（140px），精緻不霸道 */
+    margin: 0 auto;     /* 在手機畫面上自動置中 */
   }
 }
