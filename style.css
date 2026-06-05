@@ -1,0 +1,520 @@
+/* ==========================================
+   1. 網頁基礎與主體設定
+   ========================================== */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f4f6f9; /* 溫和的淺灰背景 */
+  color: #333333;       /* 深灰色文字 */
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center; /* 讓履歷表區塊在畫面水平置中 */
+}
+
+.resume-container {
+  background: #ffffff;  /* 履歷主體白色卡片 */
+  max-width: 800px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 淡淡的陰影 */
+  border-radius: 8px;   /* 邊角微圓潤 */
+}
+
+h1 {
+  color: #2c3e50;       /* 主標題沉穩藍黑色 */
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: #2c3e50;       /* 次標題 */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   🌟 頂端個人訊息豐富化樣式
+   ========================================== */
+.resume-header {
+  margin-bottom: 15px;
+}
+
+.english-name {
+  font-size: 1.4rem;
+  color: #7f8c8d;
+  font-weight: normal;
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: #34495e;
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   2. 頂端聯絡資訊膠囊樣式（橫向並排完美優化版 ✨）
+   ========================================== */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;       /* 當螢幕不夠寬時自動換行 */
+  gap: 12px;             /* 膠囊與膠囊之間的左右間距 */
+  margin-top: 18px;
+  margin-bottom: 25px;
+  font-size: 0.92rem;
+  color: #4a5568;        /* 稍微加深文字顏色 */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;   /* 溫和的淺藍灰底色 */
+  padding: 8px 16px;     /* 內襯留白，讓膠囊更圓潤飽滿 */
+  border-radius: 20px;   /* 完美圓角膠囊狀 */
+  border: 1px solid #e2e8f0; /* 淡淡的細框線 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02); /* 極微量的下陰影 */
+  transition: all 0.2s ease; /* 讓懸停動畫很滑順 */
+}
+
+.contact-item span {
+  margin-right: 8px;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 當滑鼠移到膠囊上時，會有微微浮起與變亮的效果 */
+.contact-item:hover {
+  transform: translateY(-1px);
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 讓社群超連結（GitHub / LinkedIn）滑鼠移上去時有特別的變色效果 */
+.social-link {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.social-link:hover {
+  background: #3498db !important; 
+  color: #ffffff !important;
+  border-color: #3498db;
+}
+
+/* ==========================================
+   🌟 頂端亮點數據小卡樣式
+   ========================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stats-card {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1; /* 虛線框，有設計感 */
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+
+.stats-num {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.stats-num span {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #7f8c8d;
+  margin-left: 2px;
+}
+
+.stats-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* 當螢幕太小時（例如手機），讓數據小卡自動垂直排列 */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ==========================================
+   3. 通用區塊與標題裝飾（🛠️ 修正：同時支援 h2 與 h3 標題）
+   ========================================== */
+.profile-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1; /* 區塊水平分割線 */
+}
+
+/* 讓所有主要區塊的 h2 和 h3 標題，樣式與大小都保持統一 */
+.profile-section h2, .profile-section h3,
+.certifications-section h2, .certifications-section h3,
+.experience-section h2, .experience-section h3 {
+  color: #34495e;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 15px; /* 給左邊藍色裝飾線留空間 */
+}
+
+/* 在所有標題左邊加上一條小藍線裝飾 */
+.profile-section h2::before, .profile-section h3::before,
+.certifications-section h2::before, .certifications-section h3::before,
+.experience-section h2::before, .experience-section h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 1.3rem;
+  background-color: #3498db; /* 裝飾藍線 */
+}
+
+p {
+  line-height: 1.6; /* 調整行高，方便閱讀 */
+  font-size: 1rem;
+}
+
+/* ==========================================
+   🌟 關於我：熟練應用程式標籤樣式
+   ========================================== */
+.skills-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;   /* 關鍵：讓所有元件排成一橫排 */
+  align-items: center;   /* 垂直置中對齊 */
+  flex-wrap: wrap;       /* 手機版畫面不夠寬時會自動優雅折行 */
+  gap: 8px;              /* 標籤與標籤之間的左右間距 */
+  background: #f8fafc;   /* 淡淡的底色區隔 */
+  padding: 12px 18px;    /* 稍微縮減上下高度，讓版面更俐落 */
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.skills-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #475569;
+  margin-right: 5px;     /* 與第一個膠囊保持距離 */
+}
+
+/* 基礎標籤樣式（Office 系列採用溫和的灰色系） */
+.skill-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  background: #edf2f7;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e0;
+}
+
+/* 資料庫管理標籤（藍色系） */
+.skill-badge.sql-badge {
+  color: #2b6cb0;
+  background: #ebf8ff;
+  border-color: #bee3f8;
+}
+
+/* Adobe 視覺設計標籤（紫色系） */
+.skill-badge.adobe-badge {
+  color: #6b46c1;
+  background: #faf5ff;
+  border-color: #e9d8fd;
+}
+
+/* ==========================================
+   4. 教育背景區塊
+   ========================================== */
+.edu-item {
+  margin-bottom: 25px;
+}
+
+.edu-item:last-child {
+  margin-bottom: 0;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between; /* 學校靠左、年份靠右 */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.school {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.major {
+  font-size: 1.05rem;
+  color: #3498db; /* 科系名稱用藍色強調 */
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.edu-desc {
+  margin-top: 8px;
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   5. 專業證照網格區塊
+   ========================================== */
+.certifications-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動響應式並排 */
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc; /* 淡淡的藍灰色底 */
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+/* 滑鼠懸停動態效果 */
+.cert-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.cert-icon {
+  font-size: 1.8rem;
+  margin-right: 15px;
+}
+
+.cert-name {
+  font-size: 0.98rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.cert-org {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 3px;
+}
+
+/* ==========================================
+   6. 工作經歷（倒敘微型時間軸升級版）
+   ========================================== */
+.experience-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 20px;
+}
+
+/* 垂直軸線 */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 35px; /* 項目間距拉開，保持通透感 */
+}
+
+.timeline-item:last-child {
+  margin-bottom: 10px;
+}
+
+/* 時間軸小圓點 */
+.timeline-dot {
+  position: absolute;
+  left: -25px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background-color: #cbd5e1;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+/* 讓「至今」的最新工作圓點變成亮眼藍色 */
+.timeline-dot.highlight-dot {
+  background-color: #3498db;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 年份文字 */
+.time {
+  color: #b45309; 
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 職稱與類別 */
+.job-meta {
+  color: #2c3e50;
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+/* 專業範疇微型標籤 */
+.job-tag {
+  color: #7f8c8d;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-top: 2px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #f8fafc;
+  align-self: flex-start;
+}
+
+/* ==========================================
+   7. 右下角漂浮聯絡小卡
+   ========================================== */
+.floating-contact {
+  position: fixed;   /* 把卡片釘在視窗上 */
+  bottom: 25px;
+  right: 25px;
+  background: #ffffff;
+  border-left: 4px solid #3498db; /* 左側邊條裝飾 */
+  border-radius: 6px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* 漂亮的立體陰影 */
+  z-index: 1000;
+  
+  /* 滑動出現動態控制（預設隱藏） */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+/* 當 JS 注入 .show 類別時浮現 */
+.floating-contact.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.floating-content p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+/* ==========================================
+   🌟 專題專案展示卡片樣式 🌟
+   ========================================== */
+.project-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+  box-shadow: inset 3px 0 0 #3498db; /* 左側有一條亮眼的小藍邊條裝飾 */
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.project-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3498db;
+  background: #ebf8ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #bee3f8;
+}
+
+.project-desc {
+  margin: 0 0 15px 0;
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 專題技術標籤組 */
+.project-tech-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
