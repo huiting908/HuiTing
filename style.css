@@ -1,210 +1,659 @@
+html {
+  scroll-behavior: smooth; /* 全網頁平滑流暢滾動 */
+}
+/* ==========================================
+   1. 網頁基礎與主體設定
+   ========================================== */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f4f6f9; /* 溫和的淺灰背景 */
+  color: #333333;       /* 深灰色文字 */
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center; /* 讓履歷表區塊在畫面水平置中 */
+}
 
-<link rel="stylesheet" href="style.css">
-<div class="resume-container">
-  <div class="resume-header">
-    <h2>林惠婷 <span class="english-name">(Lin Hui Ting)</span></h2>
-    <div class="tagline">主修商業資訊應用 ｜ 專注於行政管理、數據分析與前端開發的跨領域人才</div>
-  </div>
-  <div class="contact-info">
-    <div class="contact-item"><span>📞</span> 0938-836-617</div>
-    <div class="contact-item"><span>✉️</span> 8705241@gmail.com</div>
-    <div class="contact-item"><span>📍</span> 高雄市, 台灣</div>
-  </div>
-<section class="profile-section" id="about-sec">
-    <h3>關於我 / Profile</h3>
-    <p>
-      您好，我是林惠婷。經過高中以及大學的歷練後，我同時兼具商業營運實務與資訊科技應用的雙軌思維。不僅具備前端網頁開發與資料庫管理的技術實作力，亦擁有市場行銷與行政效率的敏銳度。
-    </p>
-    <p>
-      文書處理是我的核心強項，而視覺設計則是我的熱情興趣。在求學期間的無數次團隊合作中，我除了發揮多工的時間管理與第一線溝通協調能力，更往往擔任「視覺與美術設計」的關鍵角色，負責將複雜的專案轉化為具備美感的書面報告。
-     </p>
-     <p>
-      我期許自己能發揮「懂商業、通資訊、具美感」的複合型優勢，為企業帶來兼具專業與質感的數位賦能。
-    </p>
-    <div class="skills-container">
-      <span class="skills-title">熟練工具：</span>
-      <span class="skill-badge">Word</span>
-      <span class="skill-badge">Excel</span>
-      <span class="skill-badge">PowerPoint</span>
-      <span class="skill-badge sql-badge">MySQL</span>
-      <span class="skill-badge sql-badge">Access</span>
-      <span class="skill-badge adobe-badge">Photoshop (PS)</span>
-      <span class="skill-badge adobe-badge">Illustrator (AI)</span>
-    </div>
-  </section>  
+.resume-container {
+  background: #ffffff;  /* 履歷主體白色卡片 */
+  max-width: 800px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 淡淡的陰影 */
+  border-radius: 8px;   /* 邊角微圓潤 */
+}
+
+h1 {
+  color: #2c3e50;       /* 主標題沉穩藍黑色 */
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: #2c3e50;       /* 次標題 */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   🌟 頂端個人訊息豐富化樣式
+   ========================================== */
+.resume-header {
+  margin-bottom: 15px;
+}
+
+.english-name {
+  font-size: 1.4rem;
+  color: #7f8c8d;
+  font-weight: normal;
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: #34495e;
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   2. 頂端聯絡資訊膠囊樣式（橫向並排完美優化版 ✨）
+   ========================================== */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;       /* 當螢幕不夠寬時自動換行 */
+  gap: 12px;              /* 膠囊與膠囊之間的左右間距 */
+  margin-top: 18px;
+  margin-bottom: 25px;
+  font-size: 0.92rem;
+  color: #4a5568;        /* 稍微加深文字顏色 */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;   /* 溫和的淺藍灰底色 */
+  padding: 8px 16px;     /* 內襯留白，讓膠囊更圓潤飽滿 */
+  border-radius: 20px;   /* 完美圓角膠囊狀 */
+  border: 1px solid #e2e8f0; /* 淡淡的細框線 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02); /* 極微量的下陰影 */
+  transition: all 0.2s ease; /* 讓懸停動畫很滑順 */
+}
+
+.contact-item span {
+  margin-right: 8px;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 當滑鼠移到膠囊上時，會有微微浮起與變亮的效果 */
+.contact-item:hover {
+  transform: translateY(-1px);
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 讓社群超連結（GitHub / LinkedIn）滑鼠移上去時有特別的變色效果 */
+.social-link {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.social-link:hover {
+  background: #3498db !important; 
+  color: #ffffff !important;
+  border-color: #3498db;
+}
+
+/* ==========================================
+   🌟 頂端亮點數據小卡樣式
+   ========================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stats-card {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1; /* 虛線框，有設計感 */
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+
+.stats-num {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.stats-num span {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #7f8c8d;
+  margin-left: 2px;
+}
+
+.stats-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* 當螢幕太小時（例如手機），讓數據小卡自動垂直排列 */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ==========================================
+   3. 通用區塊與標題裝飾（🛠️ 修正：同時支援 h2 與 h3 標題）
+   ========================================== */
+.profile-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1; /* 區塊水平分割線 */
+}
+
+/* 讓所有主要區塊的 h2 和 h3 標題，樣式與大小都保持統一 */
+.profile-section h2, .profile-section h3,
+.certifications-section h2, .certifications-section h3,
+.experience-section h2, .experience-section h3 {
+  color: #34495e;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 15px; /* 給左邊藍色裝飾線留空間 */
+}
+
+/* 在所有標題左邊加上一條小藍線裝飾 */
+.profile-section h2::before, .profile-section h3::before,
+.certifications-section h2::before, .certifications-section h3::before,
+.experience-section h2::before, .experience-section h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 1.3rem;
+  background-color: #3498db; /* 裝飾藍線 */
+}
+
+p {
+  line-height: 1.6; /* 調整行高，方便閱讀 */
+  font-size: 1rem;
+}
+
+/* ==========================================
+   🌟 關於我：熟練應用程式標籤樣式
+   ========================================== */
+.skills-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;   /* 關鍵：讓所有元件排成一橫排 */
+  align-items: center;   /* 垂直置中對齊 */
+  flex-wrap: wrap;       /* 手機版畫面不夠寬時會自動優雅折行 */
+  gap: 8px;              /* 標籤與標籤之間的左右間距 */
+  background: #f8fafc;   /* 淡淡的底色區隔 */
+  padding: 12px 18px;    /* 稍微縮減上下高度，讓版面更俐落 */
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.skills-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #475569;
+  margin-right: 5px;     /* 與第一個膠囊保持距離 */
+}
+
+/* 基礎標籤樣式（Office 系列採用溫和的灰色系） */
+.skill-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  background: #edf2f7;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e0;
+}
+
+/* 資料庫管理標籤（藍色系） */
+.skill-badge.sql-badge {
+  color: #2b6cb0;
+  background: #ebf8ff;
+  border-color: #bee3f8;
+}
+
+/* Adobe 視覺設計標籤（紫色系） */
+.skill-badge.adobe-badge {
+  color: #6b46c1;
+  background: #faf5ff;
+  border-color: #e9d8fd;
+}
+
+/* ==========================================
+   4. 教育背景區塊
+   ========================================== */
+.edu-item {
+  margin-bottom: 25px;
+}
+
+.edu-item:last-child {
+  margin-bottom: 0;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between; /* 學校靠左、年份靠右 */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.school {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.major {
+  font-size: 1.05rem;
+  color: #3498db; /* 科系名稱用藍色強調 */
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.edu-desc {
+  margin-top: 8px;
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   5. 專業證照網格區塊
+   ========================================== */
+.certifications-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動響應式並排 */
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc; /* 淡淡的藍灰色底 */
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+/* 滑鼠懸停動態效果 */
+.cert-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.cert-icon {
+  font-size: 1.8rem;
+  margin-right: 15px;
+}
+
+.cert-name {
+  font-size: 0.98rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.cert-org {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 3px;
+}
+
+/* ==========================================
+   6. 工作經歷（倒敘微型時間軸升級版）
+   ========================================== */
+.experience-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.timeline-container {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 20px;
+}
+
+/* 垂直軸線 */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 35px; /* 項目間距拉開，保持通透感 */
+}
+
+.timeline-item:last-child {
+  margin-bottom: 10px;
+}
+
+/* 時間軸小圓點 */
+.timeline-dot {
+  position: absolute;
+  left: -25px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background-color: #cbd5e1;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+/* 讓「至今」的最新工作圓點變成亮眼藍色 */
+.timeline-dot.highlight-dot {
+  background-color: #3498db;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 年份文字 */
+.time {
+  color: #b45309; 
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 職稱與類別 */
+.job-meta {
+  color: #2c3e50;
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+/* 專業範疇微型標籤 */
+.job-tag {
+  color: #7f8c8d;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-top: 2px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #f8fafc;
+  align-self: flex-start;
+}
+
+/* ==========================================
+   7. 網頁側邊快捷導覽鍵樣式（最右側獨立服貼版 🚀）
+   ========================================== */
+.floating-contact {
+  position: fixed;   /* 依然釘在視窗上 */
+  top: 50%;          /* 垂直置中 */
+  transform: translateY(-50%); /* 修正垂直置中偏差 */
   
-<section class="profile-section" id="edu-sec">
-    <h3>教育背景 / Education</h3>
-    <div class="edu-item">
-      <div class="edu-header">
-        <span class="school">高雄市立高雄高級商業職業學校</span>
-        <span class="date">2019 年 - 2022 年</span>
-      </div>
-      <div class="major">商業經營科</div>
-      <p class="edu-desc">
-        主要學習商業經營理論與數位工具的整合應用，包含門市經營、數位行銷、辦公室軟體操作與商務溝通等領域，培養兼具市場敏銳度與行政效率的數位商務能力。
-      </p>
-    </div>
-    <div class="edu-item">
-      <div class="edu-header">
-        <span class="school">國立高雄科技大學（日間四技）</span>
-        <span class="date">2022 年 - 在學中</span>
-      </div>
-      <div class="major">商業資訊應用系</div>
-      <p class="edu-desc">
-        主要學習商業管理與資訊科技的整合應用，包含資料庫管理、程式設計、系統分析與商務數據分析等領域，培養跨領域的數位轉型與實務解決能力。
-      </p>
-    </div>
-  </section>  
-<section class="certifications-section" id="cert-sec">
-    <h3>專業證照 / Certifications</h3>
-    <div class="cert-grid">
-      
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">TQC 雲端技術與服務</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">TQC+ 物件導向程式語言(Java)</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">TQC 資料庫管理系統</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">TQC 專案管理概論 第 3 版（V3）</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">EEC 網路行銷(MKP)</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">TQC 電腦簡報（PowerPoint 2016)</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">TQC-OA 中文輸入</div>
-          <div class="cert-org">財團法人中華民國電腦技能基金會</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">丙級電腦軟體應用技術士</div>
-          <div class="cert-org">勞動部勞動力發展署技能檢定中心</div>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">丙級會計事務技術士</div>
-          <div class="cert-org">勞動部勞動力發展署技能檢定中心</div>
-        </div>
-      </div>
-      
-    </div>
-  </section>
-<section class="experience-section" id="exp-sec">
-    <h3>工作經歷 / Work Experience</h3>
-    <div class="timeline-container">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="time">2019/10 ~ 2023/06</div>
-          <div class="job-meta">餐飲團隊外場專員</div>
-          <div class="job-tag">✦ 範疇：高壓環境適應力、團隊合作精神與危機應變處理</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="time">2023/09 ~ 2025/12</div>
-          <div class="job-meta">補習班助理導師</div>
-          <div class="job-tag">✦ 範疇：學童每日課業輔導與檢查、追蹤學習進度與課堂秩序維護</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot highlight-dot"></div> <div class="timeline-content">
-          <div class="time">2025/03 ~ 至今</div>
-          <div class="job-meta">專業行政助理</div>
-          <div class="job-tag">✦ 範疇：日常行政庶務處理、文件檔案管理、第一線學員洽詢應對與問題引導</div>
-        </div>
-      </div>
-    </div>
-  </section>
-<section class="profile-section" id="proj-sec">
-      <h3>實務專題 / Capstones Project</h3>
-<div class="project-card">
-      <div class="project-header">
-        <!-- 👇 調整：將名稱與角色直接綁在同一個大標題列 -->
-        <span class="project-title">
-          專案名稱：停、看、聽，行人過街小幫手
-          <span class="project-role">團隊核心開發者</span>
-        </span>
-      </div>
-      
-      <div class="project-main-content">
-        
-        <!-- 左側家族：精簡內文與整齊標籤 -->
-        <div class="project-text-side">
-          <p class="project-desc">
-            本研究專注於解決智慧交通在「行人第一人稱視角」下缺乏公開專用數據集的學術缺口。專案核心在於數據工程實踐，我們獨立規劃拍攝流程、定義標註規範，並透過前處理將實地影像成功擴增至 1,000 張高效能訓練資料。以此自建數據集成功訓練出具備多任務學習能力的 YOLOv12 基礎感知模型，在動態模糊與極端光影等複雜環境下，仍展現出極高魯棒性的斑馬線分割與號誌秒數辨識能力。
-          </p>
-          
-<div class="project-tech-group">
-            <span class="tech-tag">YOLOv12 多任務模型訓練</span>
-            <span class="tech-tag">行人視角 (FPV) 數據集建置</span>
-            <span class="tech-tag">資料擴增與前處理</span>
-            <span class="tech-tag">極端環境模型魯棒性優化</span>
-          </div>
-        </div>
-        
-        <!-- 右側家族：圖片依舊對齊內文第一行 -->
-        <div class="project-poster-side">
-          <img src="https://github.com/huiting908/HuiTing/blob/main/main.png?raw=true" alt="專題成果海報" class="project-poster">
-        </div>
-        
-      </div> <!-- 結束 project-main-content -->
-    </div>
-        <div class="poster-lightbox" id="posterLightbox">
-  <span class="lightbox-close">&times;</span>
-  <img src="https://github.com/huiting908/HuiTing/blob/main/main.png?raw=true" alt="海報全貌" class="lightbox-img">
-</div>
-          </section>
-      </div> </div>
+  /* 鎖定網頁最右側，距離視窗右邊緣 40px，徹底與白色卡片脫鉤，絕不壓版 */
+  right: 40px;
   
-<div class="floating-contact show" id="floatingCard">
-    <div class="floating-title">快速導覽</div>
-    <div class="floating-nav-links">
-      <a href="#about-sec" class="nav-btn">關於我 / Profile</a>
-      <a href="#edu-sec" class="nav-btn">教育背景 / Education</a>
-      <a href="#cert-sec" class="nav-btn">專業證照 / Certifications</a>
-      <a href="#exp-sec" class="nav-btn">工作經歷 / Work Experience</a>
-      <a href="#proj-sec" class="nav-btn">實務專題 / Capstones Project</a>
-    </div>
-  </div>
+  background: #ffffff;
+  border-left: 4px solid #3498db; /* 左側藍色邊條裝飾 */
+  border-radius: 6px;
+  padding: 12px;
+  width: 140px;       /* 保持寬度，中英文一體不折行 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 柔和高檔陰影 */
+  z-index: 1000;
+  pointer-events: auto; /* 讓導覽鍵一直可以被點擊 */
+}
+
+.floating-title {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* 導覽按鈕包裝 */
+.floating-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 導覽按鈕本人 */
+.nav-btn {
+  font-size: 0.82rem;
+  color: #4a5568;
+  text-decoration: none; /* 拿掉超連結下底線 */
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+/* 滑鼠移上去時的優雅變色效果 */
+.nav-btn:hover {
+  background: #f1f5f9;
+  color: #3498db;
+  padding-left: 12px; /* 移上去時字會微微往右彈，很有靈動感 */
+}
+
+/* 📱 響應式優化：當螢幕太小時（如手機版），側邊會放不下，這時把導覽列優雅隱藏，避免擋住履歷 */
+@media (max-width: 1100px) {
+  .floating-contact {
+    display: none;
+  }
+}
+
+/* ==========================================
+   🎓 大學畢業專題與圖文混排定案樣式（極簡對齊標題版）
+   ========================================== */
+.project-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+  box-shadow: inset 3px 0 0 #3498db; /* 左側藍色邊條裝飾 */
+}
+
+/* 專案標題與團隊角色一體化 */
+.project-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.project-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #3498db;
+  background: #ebf8ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #bee3f8;
+  display: inline-block;
+}
+
+/* 圖文混排大外套：頂端對齊 */
+.project-main-content {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  margin-top: 5px; /* 向上提，讓圖片完美對齊標題高度 */
+}
+
+.project-text-side {
+  flex: 1;
+}
+
+.project-text-side .project-desc {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: justify;
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 質樸風技術標籤群（不花俏、沉穩色調） */
+.project-tech-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-tag {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #4a5568;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 4px 10px;
+  border-radius: 4px; /* 微方圓角，與整份履歷風貌相配 */
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+}
+
+/* 右側海報缩圖控制 */
+.project-poster-side {
+  flex-shrink: 0;
+  margin-top: -38px; /* 黑魔法：將圖片往上拉提精準對齊標題 */
+}
+
+.project-mini-poster,
+.project-poster {
+  display: block;
+  width: 180px; /* 嚴格限制電腦版縮圖寬度 */
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+  cursor: zoom-in; /* 滑鼠移上去變放大鏡 */
+}
+
+.project-mini-poster:hover,
+.project-poster:hover {
+  transform: scale(1.05); /* 微微放大互動 */
+}
+
+/* ==========================================
+   🔍 專題海報點擊放大（燈箱效果）樣式
+   ========================================== */
+.poster-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* 質感黑透明底 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.poster-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.poster-lightbox.active .lightbox-img {
+  transform: scale(1);
+  cursor: zoom-out; /* 放大後滑鼠變縮小鏡 */
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+  color: #3498db;
+}
+
+/* 📱 針對手機板螢幕的響應式優化 */
+@media (max-width: 768px) {
+  .project-main-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .project-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .project-poster-side {
+    margin-top: 0; /* 手機版取消上提，恢復正常上下排列 */
+    margin: 0 auto;
+  }
+
+  .project-mini-poster,
+  .project-poster {
+    width: 140px; /* 手機版海報自動縮小 */
+  }
+}
