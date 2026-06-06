@@ -10,7 +10,7 @@
     <div class="contact-item"><span>✉️</span> 8705241@gmail.com</div>
     <div class="contact-item"><span>📍</span> 高雄市, 台灣</div>
   </div>
-  <section class="profile-section">
+<section class="profile-section" id="about-sec">
     <h3>關於我 / Profile</h3>
     <p>
       您好，我是林惠婷。經過高中以及大學的歷練後，我同時兼具商業營運實務與資訊科技應用的雙軌思維。不僅具備前端網頁開發與資料庫管理的技術實作力，亦擁有市場行銷與行政效率的敏銳度。
@@ -33,7 +33,7 @@
     </div>
   </section>  
   
-  <section class="profile-section">
+<section class="profile-section" id="edu-sec">
     <h3>教育背景 / Education</h3>
     <div class="edu-item">
       <div class="edu-header">
@@ -56,7 +56,7 @@
       </p>
     </div>
   </section>  
-  <section class="certifications-section">
+<section class="certifications-section" id="cert-sec">
     <h3>專業證照 / Certifications</h3>
     <div class="cert-grid">
       
@@ -127,7 +127,7 @@
       
     </div>
   </section>
-  <section class="experience-section">
+<section class="experience-section" id="exp-sec">
     <h3>工作經歷 / Work Experience</h3>
     <div class="timeline-container">
       <div class="timeline-item">
@@ -157,36 +157,54 @@
       </div>
     </div>
   </section>
-
-  <section class="profile-section">
-    <h3>大學畢業專題 / Graduation Project</h3>
-    <div class="project-card">
+<section class="profile-section" id="proj-sec">
+      <h3>實務專題 / Capstones Project</h3>
+<div class="project-card">
       <div class="project-header">
-        <span class="project-title">專案名稱：停、看、聽，行人過街小幫手</span>
-        <span class="project-role">團隊核心開發者</span>
+        <!-- 👇 調整：將名稱與角色直接綁在同一個大標題列 -->
+        <span class="project-title">
+          專案名稱：停、看、聽，行人過街小幫手
+          <span class="project-role">團隊核心開發者</span>
+        </span>
       </div>
       
-      <p class="project-desc">
-        本研究專注於解決智慧交通在「行人第一人稱視角」下缺乏公開專用數據集與模型的學術缺口。專案核心在於數據工程實踐，我們獨立規劃拍攝流程、定義標註規範，並透過影像拉伸與前處理，將 400 張實地影像成功擴增至 1,000 張高效能訓練資料。技術上，我們以此自建數據集成功訓練出具備多任務學習能力的 YOLOv12 基礎感知模型，在動態模糊、極端光影與夜間雨天等複雜環境下，仍展現出極高魯棒性的斑馬線分割與號誌秒數圖形辨識能力。
-      </p>
-<div class="project-poster-side">
-          <img src="main.png" alt="專題成果海報" class="project-poster">
+      <div class="project-main-content">
+        
+        <!-- 左側家族：精簡內文與整齊標籤 -->
+        <div class="project-text-side">
+          <p class="project-desc">
+            本研究專注於解決智慧交通在「行人第一人稱視角」下缺乏公開專用數據集的學術缺口。專案核心在於數據工程實踐，我們獨立規劃拍攝流程、定義標註規範，並透過前處理將實地影像成功擴增至 1,000 張高效能訓練資料。以此自建數據集成功訓練出具備多任務學習能力的 YOLOv12 基礎感知模型，在動態模糊與極端光影等複雜環境下，仍展現出極高魯棒性的斑馬線分割與號誌秒數辨識能力。
+          </p>
+          
+<div class="project-tech-group">
+            <span class="tech-tag">YOLOv12 多任務模型訓練</span>
+            <span class="tech-tag">行人視角 (FPV) 數據集建置</span>
+            <span class="tech-tag">資料擴增與前處理</span>
+            <span class="tech-tag">極端環境模型魯棒性優化</span>
+          </div>
         </div>
-      
-  <div class="project-tech-group">
-        <span class="tech-tag">YOLOv12 多任務模型訓練</span>
-        <span class="tech-tag">行人視角 (FPV) 數據集建置</span>
-        <span class="tech-tag">資料擴增與前處理</span>
-        <span class="tech-tag">極端環境模型魯棒性優化</span>
-      </div>
+        
+        <!-- 右側家族：圖片依舊對齊內文第一行 -->
+        <div class="project-poster-side">
+          <img src="https://github.com/huiting908/HuiTing/blob/main/main.png?raw=true" alt="專題成果海報" class="project-poster">
+        </div>
+        
+      </div> <!-- 結束 project-main-content -->
     </div>
-  </section>
+        <div class="poster-lightbox" id="posterLightbox">
+  <span class="lightbox-close">&times;</span>
+  <img src="https://github.com/huiting908/HuiTing/blob/main/main.png?raw=true" alt="海報全貌" class="lightbox-img">
+</div>
+          </section>
+      </div> </div>
   
-  <div class="floating-contact" id="floatingCard">
-    <div class="floating-title">我的聯絡方式</div>
-    <div class="floating-content">
-      <p>📞 0938-836-617</p>
-      <p>✉️ 8705241@gmail.com</p>
+<div class="floating-contact show" id="floatingCard">
+    <div class="floating-title">快速導覽</div>
+    <div class="floating-nav-links">
+      <a href="#about-sec" class="nav-btn">關於我 / Profile</a>
+      <a href="#edu-sec" class="nav-btn">教育背景 / Education</a>
+      <a href="#cert-sec" class="nav-btn">專業證照 / Certifications</a>
+      <a href="#exp-sec" class="nav-btn">工作經歷 / Work Experience</a>
+      <a href="#proj-sec" class="nav-btn">實務專題 / Capstones Project</a>
     </div>
   </div>
-</div>
