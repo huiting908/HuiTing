@@ -20,3 +20,33 @@ window.addEventListener('scroll', () => {
     floatingCard.classList.remove('show');
   }
 });
+// ==========================================
+// 🔍 專題海報點擊放大互動邏輯
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  // 抓取網頁上的元素
+  const posterImg = document.querySelector('.project-poster');
+  const lightbox = document.getElementById('posterLightbox');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  // 確保元件都存在才執行，避免報錯
+  if (posterImg && lightbox) {
+    // 1. 點擊小海報 ＞ 打開大燈箱
+    posterImg.addEventListener('click', function() {
+      lightbox.classList.add('active');
+    });
+
+    // 2. 點擊右上角叉叉 ＞ 關閉燈箱
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+      });
+    }
+
+    // 3. 點擊黑底任何地方（包含大圖本身）＞ 也能優雅關閉
+    lightbox.addEventListener('click', function(e) {
+      // 點擊關閉
+      lightbox.classList.remove('active');
+    });
+  }
+});
