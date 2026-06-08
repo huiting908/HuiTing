@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth; /* 全網頁平滑流暢滾動 */
 }
+
 /* ==========================================
    1. 網頁基礎與主體設定
    ========================================== */
@@ -12,7 +13,7 @@ body {
   padding: 40px 20px;
   display: flex;
   justify-content: center; /* 讓履歷表區塊在畫面水平置中 */
-  align-items: flex-start; /* 🎨 關鍵修正：確保白色卡片能由上到下自然延伸，絕不斷裂 */
+  align-items: flex-start; /* 關鍵修正：確保白色卡片能由上到下自然延伸，絕不斷裂 */
 }
 
 .resume-container {
@@ -24,11 +25,6 @@ body {
   border-radius: 8px;   /* 邊角微圓潤 */
 }
 
-h1 {
-  color: #2c3e50;       /* 主標題沉穩藍黑色 */
-  margin-bottom: 5px;
-}
-
 h2 {
   color: #2c3e50;       /* 次標題 */
   margin-top: 0;
@@ -36,8 +32,30 @@ h2 {
 }
 
 /* ==========================================
-   🌟 頂端個人訊息豐富化樣式
+   🌟 頂端個人訊息與頭像混排樣式
    ========================================== */
+.header-profile-container {
+  display: flex !important;       /* 強制啟動 Flexbox 排版 */
+  flex-direction: row !important; /* 強制橫向並排 */
+  justify-content: space-between; /* 左右兩端拉開 */
+  align-items: center;            /* 垂直置中 */
+  gap: 30px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.header-text-side {
+  flex: 1 !important; /* 讓左邊文字佔滿所有剩餘空間 */
+}
+
+.header-text-side .contact-info {
+  margin-bottom: 0; /* 消除原本的底部間距，讓排版更緊湊 */
+}
+
+.header-avatar-side {
+  flex-shrink: 0 !important; /* 防止頭像被文字擠壓 */
+}
+
 .resume-header {
   margin-bottom: 15px;
 }
@@ -56,15 +74,26 @@ h2 {
   line-height: 1.4;
 }
 
+/* 完美個人照大頭貼樣式 */
+.profile-avatar {
+  display: block;
+  width: 140px;       /* 設定最精緻的大頭貼寬度 */
+  height: 140px;      /* 高度對等 */
+  object-fit: cover;  /* 圖片完美裁剪不變形 */
+  border-radius: 50%; /* 強制裁剪為完美正圓形 */
+  border: 4px solid #ffffff; /* 細緻白邊 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 
+              0 0 0 1px #e2e8f0; /* 外圍再加一圈極細的淺灰線 */
+}
+
 /* ==========================================
-   2. 頂端聯絡資訊膠囊樣式（橫向並排完美優化版 ✨）
+   2. 頂端聯絡資訊膠囊樣式
    ========================================== */
 .contact-info {
   display: flex;
   flex-wrap: wrap;       /* 當螢幕不夠寬時自動換行 */
   gap: 12px;              /* 膠囊與膠囊之間的左右間距 */
   margin-top: 18px;
-  margin-bottom: 25px;
   font-size: 0.92rem;
   color: #4a5568;        /* 稍微加深文字顏色 */
 }
@@ -87,7 +116,6 @@ h2 {
   align-items: center;
 }
 
-/* 當滑鼠移到膠囊上時，會有微微浮起與變亮的效果 */
 .contact-item:hover {
   transform: translateY(-1px);
   background: #ffffff;
@@ -95,67 +123,8 @@ h2 {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* 讓社群超連結（GitHub / LinkedIn）滑鼠移上去時有特別的變色效果 */
-.social-link {
-  text-decoration: none;
-  color: #3498db;
-  font-weight: 600;
-}
-
-.social-link:hover {
-  background: #3498db !important; 
-  color: #ffffff !important;
-  border-color: #3498db;
-}
-
 /* ==========================================
-   🌟 頂端亮點數據小卡樣式
-   ========================================== */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.stats-card {
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1; /* 虛線框，有設計感 */
-  border-radius: 6px;
-  padding: 12px;
-  text-align: center;
-}
-
-.stats-num {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #3498db;
-}
-
-.stats-num span {
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: #7f8c8d;
-  margin-left: 2px;
-}
-
-.stats-label {
-  font-size: 0.85rem;
-  color: #64748b;
-  margin-top: 4px;
-  font-weight: 500;
-}
-
-/* 當螢幕太小時（例如手機），讓數據小卡自動垂直排列 */
-@media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-}
-
-/* ==========================================
-   3. 通用區塊與標題裝飾（🛠️ 修正：同時支援 h2 與 h3 標題）
+   3. 通用區塊與標題裝飾
    ========================================== */
 .profile-section {
   margin-top: 30px;
@@ -310,7 +279,6 @@ p {
   transition: all 0.3s ease;
 }
 
-/* 滑鼠懸停動態效果 */
 .cert-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -349,7 +317,6 @@ p {
   margin-top: 20px;
 }
 
-/* 垂直軸線 */
 .timeline-container::before {
   content: '';
   position: absolute;
@@ -369,7 +336,6 @@ p {
   margin-bottom: 10px;
 }
 
-/* 時間軸小圓點 */
 .timeline-dot {
   position: absolute;
   left: -25px;
@@ -381,7 +347,6 @@ p {
   border: 2px solid #ffffff;
 }
 
-/* 讓「至今」的最新工作圓點變成亮眼藍色 */
 .timeline-dot.highlight-dot {
   background-color: #3498db;
 }
@@ -392,7 +357,6 @@ p {
   gap: 6px;
 }
 
-/* 年份文字 */
 .time {
   color: #b45309; 
   font-size: 0.9rem;
@@ -400,14 +364,12 @@ p {
   letter-spacing: 0.5px;
 }
 
-/* 職稱與類別 */
 .job-meta {
   color: #2c3e50;
   font-size: 1.05rem;
   font-weight: bold;
 }
 
-/* 專業範疇微型標籤 */
 .job-tag {
   color: #7f8c8d;
   font-size: 0.88rem;
@@ -426,15 +388,12 @@ p {
   position: fixed;   /* 依然釘在視窗上 */
   top: 50%;          /* 垂直置中 */
   transform: translateY(-50%); /* 修正垂直置中偏差 */
-  
-  /* 鎖定網頁最右側，距離視窗右邊緣 40px，徹底與白色卡片脫鉤，絕不壓版 */
-  right: 40px;
-  
+  right: 40px;       /* 鎖定網頁最右側，徹底與白色卡片脫鉤，絕不壓版 */
   background: #ffffff;
   border-left: 4px solid #3498db; /* 左側藍色邊條裝飾 */
   border-radius: 6px;
   padding: 12px;
-  width: 200px;       /* 保持寬度，中英文一體不折行 */
+  width: 140px;       /* 保持寬度，中英文一體不折行 */
   box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 柔和高檔陰影 */
   z-index: 1000;
   pointer-events: auto; /* 讓導覽鍵一直可以被點擊 */
@@ -450,14 +409,12 @@ p {
   letter-spacing: 0.5px;
 }
 
-/* 導覽按鈕包裝 */
 .floating-nav-links {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* 導覽按鈕本人 */
 .nav-btn {
   font-size: 0.82rem;
   color: #4a5568;
@@ -468,17 +425,15 @@ p {
   display: block;
 }
 
-/* 滑鼠移上去時的優雅變色效果 */
 .nav-btn:hover {
   background: #f1f5f9;
   color: #3498db;
   padding-left: 12px; /* 移上去時字會微微往右彈，很有靈動感 */
 }
 
-/* 📱 響應式優化：當螢幕太小時（如手機版），側邊會放不下，這時把導覽列優雅隱藏，避免擋住履歷 */
 @media (max-width: 1100px) {
   .floating-contact {
-    display: none;
+    display: none; /* 當螢幕太小時，側邊導覽列優雅隱藏，避免擋住履歷 */
   }
 }
 
@@ -494,7 +449,6 @@ p {
   box-shadow: inset 3px 0 0 #3498db; /* 左側藍色邊條裝飾 */
 }
 
-/* 專案標題與團隊角色一體化 */
 .project-title {
   display: flex;
   align-items: center;
@@ -516,7 +470,6 @@ p {
   display: inline-block;
 }
 
-/* 圖文混排大外套：頂端對齊 */
 .project-main-content {
   display: flex;
   gap: 25px;
@@ -537,7 +490,6 @@ p {
   line-height: 1.6;
 }
 
-/* 質樸風技術標籤群（不花俏、沉穩色調） */
 .project-tech-group {
   display: flex;
   flex-wrap: wrap;
@@ -558,13 +510,11 @@ p {
   cursor: default;
 }
 
-/* 右側海報缩圖控制 */
 .project-poster-side {
   flex-shrink: 0;
   margin-top: -38px; /* 黑魔法：將圖片往上拉提精準對齊標題 */
 }
 
-.project-mini-poster,
 .project-poster {
   display: block;
   width: 180px; /* 嚴格限制電腦版縮圖寬度 */
@@ -576,7 +526,6 @@ p {
   cursor: zoom-in; /* 滑鼠移上去變放大鏡 */
 }
 
-.project-mini-poster:hover,
 .project-poster:hover {
   transform: scale(1.05); /* 微微放大互動 */
 }
@@ -635,8 +584,26 @@ p {
   color: #3498db;
 }
 
-/* 📱 針對手機板螢幕的響應式優化 */
+/* ==========================================
+   📱 針對手機板螢幕的響應式優化
+   ========================================== */
 @media (max-width: 768px) {
+  .header-profile-container {
+    flex-direction: column-reverse !important; /* 手機版照片在上面，文字在下面 */
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .contact-info {
+    justify-content: center; /* 手機版膠囊置中 */
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
   .project-main-content {
     flex-direction: column;
     gap: 15px;
@@ -653,110 +620,7 @@ p {
     margin: 0 auto;
   }
 
-  .project-mini-poster,
   .project-poster {
     width: 140px; /* 手機版海報自動縮小 */
-  }
-}
-/* ==========================================
-   🖼️ 頂端個人照與圖文並排樣式
-   ========================================== */
-.header-profile-container {
-  display: flex;
-  justify-content: space-between; /* 左右拉開 */
-  align-items: center;            /* 垂直置中 */
-  gap: 30px;
-  margin-bottom: 25px;
-}
-
-.header-text-side {
-  flex: 1; /* 讓文字自動佔滿左邊剩餘空間 */
-}
-
-/* 讓原本的聯絡資訊寬度自然延展，不要過寬 */
-.header-text-side .contact-info {
-  margin-bottom: 0; /* 消除原本的底部間距，讓排版更緊湊 */
-}
-
-.header-avatar-side {
-  flex-shrink: 0; /* 防止頭像被文字擠壓變形 */
-}
-/* 完美個人照大頭貼樣式 */
-.profile-avatar {
-  display: block;
-  width: 140px;       /* 設定最精緻的大頭貼寬度 */
-  height: 140px;      /* 高度對等 */
-  object-fit: cover;  /* 圖片完美裁剪不變形 */
-  border-radius: 50%; /* 強制裁剪為完美正圓形 */
-  
-  /* 細緻邊框與立體陰影襯托 */
-  border: 4px solid #ffffff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 
-              0 0 0 1px #e2e8f0; /* 外圍再加一圈極細的淺灰線 */
-}
-
-/* 📱 針對手機板螢幕的響應式優化：改為上下排列，頭像居中 */
-@media (max-width: 768px) {
-  .header-profile-container {
-    flex-direction: column-reverse; /* 手機版照片在最上方，文字在下方 */
-    gap: 20px;
-    text-align: center;
-  }
-  
-  .contact-info {
-    justify-content: center; /* 手機版膠囊置中 */
-  }
-  
-  .profile-avatar {
-    width: 120px; /* 手機版稍微縮小，更精緻 */
-    height: 120px;
-    margin: 0 auto;
-  }
-}
-/* ==========================================
-   🖼️ 強制頂端頭像左右並排樣式（CodePen 修正版）
-   ========================================== */
-.header-profile-container {
-  display: flex !important;       /* 強制啟動 Flexbox 排版 */
-  flex-direction: row !important; /* 強制橫向並排 */
-  justify-content: space-between; /* 左右兩端拉開 */
-  align-items: center;            /* 垂直置中 */
-  gap: 30px;
-  margin-bottom: 25px;
-  width: 100%;
-}
-
-.header-text-side {
-  flex: 1 !important; /* 讓左邊文字佔滿所有剩餘空間 */
-}
-
-.header-avatar-side {
-  flex-shrink: 0 !important; /* 防止頭像被文字擠壓 */
-}
-
-/* 圓形大頭貼本體 */
-.profile-avatar {
-  display: block;
-  width: 140px;       
-  height: 140px;      
-  object-fit: cover;  /* 確保照片放進去時完美裁剪不變形 */
-  border-radius: 50%; /* 完美正圓形 */
-  
-  /* 細緻白邊與立體陰影襯托 */
-  border: 4px solid #ffffff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 
-              0 0 0 1px #e2e8f0; 
-}
-
-/* 📱 手機版響應式設定：螢幕小於 768px 時才變上下並排 */
-@media (max-width: 768px) {
-  .header-profile-container {
-    flex-direction: column-reverse !important; /* 手機版照片在上面，文字在下面 */
-    gap: 20px;
-  }
-  .profile-avatar {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
   }
 }
