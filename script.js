@@ -31,9 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // ➔ 點擊黑底任何地方：優雅關閉燈箱
-    lightbox.addEventListener("click", function () {
-      lightbox.classList.remove("active");
+    // ➔ 點擊燈箱黑底時才關閉（優化：點擊海報大圖本身不會誤觸關閉）
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+      }
     });
   }
 });
