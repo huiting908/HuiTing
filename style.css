@@ -434,7 +434,7 @@ p {
   border-left: 4px solid #3498db; /* 左側藍色邊條裝飾 */
   border-radius: 6px;
   padding: 12px;
-  width: 140px;       /* 保持寬度，中英文一體不折行 */
+  width: 200px;       /* 保持寬度，中英文一體不折行 */
   box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 柔和高檔陰影 */
   z-index: 1000;
   pointer-events: auto; /* 讓導覽鍵一直可以被點擊 */
