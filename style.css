@@ -658,3 +658,50 @@ p {
     width: 140px; /* 手機版海報自動縮小 */
   }
 }
+/* ==========================================
+   🖼️ 強制頂端頭像左右並排樣式
+   ========================================== */
+.header-profile-container {
+  display: flex !important;       /* 強制啟動 Flexbox 排版 */
+  flex-direction: row !important; /* 強制橫向並排 */
+  justify-content: space-between; /* 左右兩端拉開 */
+  align-items: center;            /* 垂直置中 */
+  gap: 30px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.header-text-side {
+  flex: 1 !important; /* 讓左邊文字佔滿所有剩餘空間 */
+}
+
+.header-avatar-side {
+  flex-shrink: 0 !important; /* 防止頭像被文字擠壓 */
+}
+
+/* 圓形大頭貼本體 */
+.profile-avatar {
+  display: block;
+  width: 140px;       
+  height: 140px;      
+  object-fit: cover;  /* 確保照片放進去時完美裁剪不變形 */
+  border-radius: 50%; /* 完美正圓形 */
+  
+  /* 細緻白邊與立體陰影襯托 */
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 
+              0 0 0 1px #e2e8f0; 
+}
+
+/* 📱 手機版響應式設定 */
+@media (max-width: 768px) {
+  .header-profile-container {
+    flex-direction: column-reverse !important; /* 手機版照片在上面，文字在下面 */
+    gap: 20px;
+  }
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+}
