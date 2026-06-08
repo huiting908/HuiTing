@@ -5,6 +5,7 @@ html {
    1. 網頁基礎與主體設定
    ========================================== */
 body {
+  align-items: flex-start;
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: #f4f6f9; /* 溫和的淺灰背景 */
   color: #333333;       /* 深灰色文字 */
