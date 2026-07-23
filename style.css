@@ -642,14 +642,27 @@ p {
   color: #34495e;
   margin-right: 4px;
 }
-
-.skills-minimal .tag {
-  font-size: 0.9rem;
-  color: #4a5568; /* 統一沉穩灰藍色 */
-  font-weight: 500;
-  transition: color 0.2s ease;
+.skill-group h4{
+    font-size:15px;
+    color:#34495e;
+    margin-bottom:10px;
+    letter-spacing:.5px;
+}
+.tag {
+    display:inline-flex;
+    align-items:center;
+    padding:6px 14px;
+    border-radius:20px;
+    border:1px solid #d7dde5;
+    background:#fafafa;
+    color:#495057;
+    font-size:14px;
+    transition:.2s;
+    margin:0 8px 8px 0;
 }
 
-.skills-minimal .tag:hover {
-  color: #3498db; /* 滑鼠移上去微微變亮點綴 */
+.tag:hover{
+    background:#3498db;
+    color:white;
+    border-color:#3498db;
 }
