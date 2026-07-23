@@ -626,94 +626,30 @@ p {
 }
 
 /* ==========================================
-   🌟 關於我：專業技能模組化重構樣式
+   🌟 極簡 Hashtag 技能標籤樣式
    ========================================== */
-.skills-wrapper {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* 三大分類之間的上下間距 */
-}
-
-.skill-group {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px 18px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  transition: all 0.2s ease;
-}
-
-.skill-group:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.skill-group-title {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #334155;
-  white-space: nowrap; /* 避免標題被折行 */
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 150px; /* 保持左側分類標題寬度一致，整齊對齊 */
-}
-
-.badges-row {
+.skills-minimal {
+  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 8px 12px; /* 上下左右精緻留白 */
 }
 
-/* 通用膠囊膠皮 */
-.skill-badge {
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 20px;
-  transition: transform 0.2s ease;
+.skills-minimal .skills-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #34495e;
+  margin-right: 4px;
 }
 
-.skill-badge:hover {
-  transform: translateY(-1px);
+.skills-minimal .tag {
+  font-size: 0.9rem;
+  color: #4a5568; /* 統一沉穩灰藍色 */
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-/* 分類色彩：辦公行政（沉穩藍灰） */
-.skill-badge.office-badge {
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-}
-
-/* 分類色彩：前端開發（科技明亮藍） */
-.skill-badge.web-badge {
-  color: #0284c7;
-  background: #f0f9ff;
-  border: 1px solid #bae6fd;
-}
-
-/* 分類色彩：資料庫管理（深邃科技藍） */
-.skill-badge.sql-badge {
-  color: #1d4ed8;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-}
-
-/* 分類色彩：視覺美工（質感優雅紫） */
-.skill-badge.adobe-badge {
-  color: #7c3aed;
-  background: #f5f3ff;
-  border: 1px solid #ddd6fe;
-}
-
-/* 📱 手機版響應式設定：螢幕太窄時自動變上下排列 */
-@media (max-width: 640px) {
-  .skill-group {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+.skills-minimal .tag:hover {
+  color: #3498db; /* 滑鼠移上去微微變亮點綴 */
 }
